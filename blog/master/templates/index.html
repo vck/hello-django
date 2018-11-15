@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+
+{%block body%}
+
+{%if name%}
+	<h2>hello {{name}}</h2>
+{%endif%}
+<form action="/" method="post">
+	{% csrf_token %}
+	<input type="text" name="title">
+	<input type="text" name="content">
+	<input type="submit" name="">
+</form>
+
+{%for post in posts%}
+	<h3>{{post.title}}</h3>
+	<p>{{post.content}}</p>
+{%endfor%}
+{%endblock%}
