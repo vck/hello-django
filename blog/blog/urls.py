@@ -16,11 +16,16 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from master.views import index_view
+from master.views import index_view, view_page_id, delete_page_id, downvote_post_id, upvote_post_id
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view),
     path('hello/', index_view),
-    path('yowasup/', index_view)
+    path('yowasup/', index_view),
+    path('post/<int:post_id>', view_page_id),
+    path('kirim/', index_view),
+    path('delete/<int:post_id>', delete_page_id),
+    path('downvote/<int:post_id>', downvote_post_id),
+    path('upvote/<int:post_id>', upvote_post_id)
 ]
